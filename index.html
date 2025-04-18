@@ -1,96 +1,61 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShobBazar – সবকিছুর বাজার</title>
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background: #f3fefc;
-    }
-    header {
-      background: #009688;
-      padding: 1rem;
-      color: white;
-      text-align: center;
-      font-size: 1.5rem;
-    }
-    .product-card {
-      background: white;
-      margin: 1rem;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .product-card img {
-      max-width: 100px;
-      height: auto;
-    }
-    .order-button {
-      background: #009688;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin-top: 0.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .form {
-      padding: 1rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #009688;
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+    header { background: #00a884; color: white; padding: 20px; text-align: center; }
+    h1 { margin: 0; font-size: 24px; }
+    .container { padding: 20px; max-width: 1000px; margin: auto; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+    .card img { width: 100%; border-radius: 8px; }
+    .card h3 { margin: 10px 0 5px; }
+    .card p { margin: 0 0 10px; color: #555; }
+    .form-section { margin-top: 40px; }
+    form { display: grid; gap: 10px; }
+    input, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
+    button { background: #00a884; color: white; border: none; cursor: pointer; }
+    button:hover { background: #008f72; }
   </style>
 </head>
 <body>
-  <header>ShobBazar – সবকিছুর বাজার</header>
+  <header>
+    <h1>ShobBazar – সবকিছুর বাজার</h1>
+  </header>
+  <div class="container">
+    <div class="products">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="বিস্কিট">
+        <h3>বিস্কিট / Biscuit</h3>
+        <p>৳120/কার্টুন</p>
+        <button>অর্ডার করুন</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="চানাচুর">
+        <h3>চানাচুর / Chanachur</h3>
+        <p>৳95/কার্টুন</p>
+        <button>অর্ডার করুন</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="চকলেট">
+        <h3>চকলেট / Chocolate</h3>
+        <p>৳150/কার্টুন</p>
+        <button>অর্ডার করুন</button>
+      </div>
+    </div>
 
-  <div class="product-card">
-    <img src="https://via.placeholder.com/100x100?text=Biscuit" alt="বিস্কিট" />
-    <h2>বিস্কিট / Biscuit</h2>
-    <p>৳120/কার্টুন</p>
-    <button class="order-button">অর্ডার করুন</button>
-  </div>
-
-  <div class="product-card">
-    <img src="https://via.placeholder.com/100x100?text=Chanachur" alt="চানাচুর" />
-    <h2>চানাচুর / Chanachur</h2>
-    <p>৳95/কার্টুন</p>
-    <button class="order-button">অর্ডার করুন</button>
-  </div>
-
-  <div class="product-card">
-    <img src="https://via.placeholder.com/100x100?text=Chocolate" alt="চকলেট" />
-    <h2>চকলেট / Chocolate</h2>
-    <p>৳150/কার্টুন</p>
-    <button class="order-button">অর্ডার করুন</button>
-  </div>
-
-  <div class="form">
-    <h2>অর্ডার ফর্ম</h2>
-    <form>
-      <input type="text" placeholder="নাম" required />
-      <input type="tel" placeholder="মোবাইল নাম্বার" required />
-      <input type="text" placeholder="ঠিকানা" required />
-      <input type="text" placeholder="অর্ডার প্রোডাক্ট" required />
-      <button type="submit">সাবমিট করুন</button>
-    </form>
+    <div class="form-section">
+      <h2>অর্ডার ফর্ম</h2>
+      <form name="order-form" method="POST" data-netlify="true">
+        <input type="text" name="name" placeholder="আপনার নাম" required />
+        <input type="tel" name="phone" placeholder="মোবাইল নম্বর" required />
+        <input type="text" name="address" placeholder="ঠিকানা" required />
+        <button type="submit">অর্ডার জমা দিন</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
